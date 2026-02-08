@@ -1,7 +1,8 @@
 import { GoogleGenAI, Chat } from "@google/genai";
 
-// Initialize the client directly with the environment variable as per guidelines.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Initialize the client. Use a fallback empty string to prevent top-level application crash if the key is missing.
+const apiKey = process.env.API_KEY || "";
+const ai = new GoogleGenAI({ apiKey });
 
 const SYSTEM_INSTRUCTION = `You are "Engineer AI", the expert virtual assistant for Global Solutions. 
 Global Solutions is a world-class provider of:
@@ -17,7 +18,13 @@ Always emphasize safety standards (ISO, OSHA) when relevant.
 Keep answers concise but informative.
 `;
 
-export const createChatSession = (): Chat => {
+export const createChatSession = (): Chat | null => {
+  // If no API key is present, return null so the UI can handle it gracefully
+  if (!apiKey) {
+    console.warn("Gemini API Key is missing.");
+    return null;
+  }
+
   return ai.chats.create({
     model: 'gemini-3-flash-preview',
     config: {

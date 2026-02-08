@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { ChatWidget } from './components/ChatWidget';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Services } from './pages/Services';
@@ -43,9 +42,6 @@ export default function App() {
       </main>
       
       <Footer onNavigate={setCurrentPage} />
-      
-      {/* Global AI Chatbot */}
-      <ChatWidget />
     </div>
   );
 }

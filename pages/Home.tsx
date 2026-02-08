@@ -24,7 +24,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-900/50 border border-primary-500/30 text-primary-400 text-sm font-medium mb-8 backdrop-blur-sm shadow-lg">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-900/50 border border-primary-500/30 text-white text-sm font-medium mb-8 backdrop-blur-sm shadow-lg">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
